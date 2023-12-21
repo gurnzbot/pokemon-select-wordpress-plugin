@@ -1,0 +1,9 @@
+{
+    "name": "erikgurney/pokemon_selector",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "POKESEL\\": "./classes"
+        }
+    }
+}
