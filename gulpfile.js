@@ -28,12 +28,12 @@ import gulpif from "gulp-if";
 import browserSync from "browser-sync";
 
 // Project related variables
-const styleSRC = ["./assets/src/scss/main.scss"];
+const styleSRC = ["./assets/src/scss/admin.scss"];
 const styleURL = "./assets/dist/css/";
 const mapURL = "./";
 
 const jsSRC = "./assets/src/js/";
-const jsFiles = [];
+const jsFiles = ["pokesel-admin.js"];
 const jsURL = "./assets/dist/js/";
 
 const imgSRC = "./assets/src/images/**/*";

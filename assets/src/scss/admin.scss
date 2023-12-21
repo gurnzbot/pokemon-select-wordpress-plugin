@@ -1,0 +1,9 @@
+#shortcode-text {
+    &.pokesel-enabled-copy {
+        cursor: pointer;
+
+        &:hover {
+            background: #ccc;
+        }
+    }
+}
