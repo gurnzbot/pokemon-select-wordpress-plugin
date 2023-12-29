@@ -14,7 +14,15 @@ class AdminController
 
     public function createAdminMenu()
     {
-        add_menu_page(__('Pokemon Selector', 'pokesel'), __('Pokemon Selector', 'pokesel'), 'administrator', 'pokemon-selector', [$this, 'createAdminPage'], '', 25);
+        add_menu_page(
+            __('Pokemon Selector', 'pokesel'),
+            __('Pokemon Selector', 'pokesel'),
+            'administrator',
+            'pokemon-selector',
+            [$this, 'createAdminPage'],
+            '',
+            25
+        );
     }
 
     public function createAdminPage()

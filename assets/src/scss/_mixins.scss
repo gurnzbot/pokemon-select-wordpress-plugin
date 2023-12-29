@@ -1,0 +1,90 @@
+// # MIXINS
+// =========================================================================
+
+@keyframes simpleScale {
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@mixin loader {
+    @-webkit-keyframes rotateLoader {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes rotateLoader {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -35;
+        }
+        100% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -124;
+        }
+    }
+
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -35;
+        }
+        100% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -124;
+        }
+    }
+
+    .pokesel-loader {
+        display: inline-block;
+        height: 100%;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    .pokesel-loader-circle {
+        animation: rotateLoader 1s linear infinite;
+        transform-origin: center center;
+        stroke: currentColor;
+        height: 100%;
+        aspect-ratio: 1;
+    }
+
+    .pokesel-loader-path {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+        stroke-linecap: round;
+    }
+}

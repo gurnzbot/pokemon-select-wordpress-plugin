@@ -1,3 +1,30 @@
+@import "variables";
+@import "mixins";
+
+// CUSTOM ADMIN MENU ICON
+@font-face {
+    font-family: "pokesel";
+    src: url("/wp-content/plugins/pokemon-selector/assets/fonts/pokesel.eot?b72nsz");
+    src: url("/wp-content/plugins/pokemon-selector/assets/fonts/pokesel.eot?b72nsz#iefix") format("embedded-opentype"), url("/wp-content/plugins/pokemon-selector/assets/fonts/pokesel.ttf?b72nsz") format("truetype"), url("/wp-content/plugins/pokemon-selector/assets/fonts/pokesel.woff?b72nsz") format("woff"), url("/wp-content/plugins/pokemon-selector/assets/fonts/pokesel.svg?b72nsz#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+#adminmenu .toplevel_page_pokemon-selector div.wp-menu-image::before {
+    font-family: "pokesel";
+    content: "\e900";
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// ADMIN UI
+.pokesel-description-text {
+    margin-bottom: 1em;
+}
+
 #shortcode-text {
     &.pokesel-enabled-copy {
         cursor: pointer;
@@ -5,5 +32,91 @@
         &:hover {
             background: #ccc;
         }
+    }
+}
+
+.pokesel-search-form {
+    display: flex;
+    gap: 1em;
+}
+
+.pokesel-search-input-wrapper {
+    position: relative;
+    min-width: 30%;
+}
+
+#pokesel-search-input {
+    width: 100%;
+    border: 2px solid $pokemon_blue;
+    outline: none;
+    box-shadow: none;
+    padding: 0.5em 1em;
+    padding-right: 3em;
+    background: #fff;
+    transition: border 50ms ease-in;
+
+    &:focus {
+        border-color: lighten($color: $pokemon_blue, $amount: 20);
+    }
+
+    &:disabled {
+        background: #fff;
+    }
+}
+
+.pokesel-search-loader {
+    position: absolute;
+    top: 50%;
+    right: 0.5em;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    height: 2em;
+    aspect-ratio: 1;
+    color: #aaa;
+
+    @include loader();
+}
+
+// SEARCH BUTTON
+#pokesel-search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding-left: 1em;
+    padding-right: 1.5em;
+    border: 1px solid $pokemon_blue;
+    border-radius: 0.3em;
+    color: $pokemon_blue;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    background: linear-gradient(to bottom, $pokemon_yellow_dark, $pokemon_yellow_light);
+
+    &:hover {
+        background: linear-gradient(to bottom, adjust-hue($color: $pokemon_yellow_dark, $degrees: -10), adjust-hue($color: $pokemon_yellow_light, $degrees: -10));
+    }
+
+    &:active {
+        animation: simpleScale 300ms;
+        transform-origin: center;
+    }
+
+    &:disabled {
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    i:before {
+        font-family: "pokesel";
+        content: "\e900";
+        font-style: normal;
+        text-transform: none;
+        font-size: 2em;
+        font-weight: 500;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }
